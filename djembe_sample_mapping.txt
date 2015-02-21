@@ -1,0 +1,60 @@
+Djembe Samples:
+
+BASS: "ORD, L"
+5 PP
+5 MF
+5 FF
+
+TONE: "L"
+5 PP
+5 MF
+5 FF
+
+45 samples total - 15 bass / 15 tone / 15 slap
+3 velocity ranges, selected based on FSR input
+5 samples within each range, selected randomly to add variety
+
+Starting note = C1:
+Bass, PP: [36 - 40 = 0x24 - 0x28]
+1
+2
+3
+4
+5
+Bass, MF: [41 - 45 = 0x29 - 0x2D]
+1
+2
+3
+4
+5
+Bass, FF: [46 - 50 = 0x2E - 0x32]
+1
+2
+3
+4
+5
+Ending Note = D2
+Starting Note - D#2
+Tone, PP: [51 - 55 = 0x33 - 0x37]
+1
+2
+3
+4
+5
+Tone, MF: [56 - 60 = 0x38 - 0x3C]
+1
+2
+3
+4
+5
+Tone, FF: [61 - 65 = 0x3D - 0x41]
+1
+2
+3
+4
+5
+Ending Note: F3
+Starting Note: F#3
+Slap, PP: [66 - 70 = 0x42 - 0x46]
+Slap, MF: [71 - 75 = 0x47 - 0x4B]
+Slap, FF: [76 - 80 = 0x4C - 0x50]

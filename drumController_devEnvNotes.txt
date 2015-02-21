@@ -1,0 +1,49 @@
+Running python scripts + pd: restart pd to avoid unpredictable / unstable response
+
+To install working dev environment for drum controller project:
+
+Install:
+
+Python 2.6
+add C:\Python26 to the Path environment variable (Control Panel->System->Advanced)
+
+(location - Windows: C:\Python26\ / Ubuntu: usr/lib/python2.6/dist-packages/)
+
+PySerial - the appropriate version
+
+[apt-get install python-pyserial]
+
+MIDI YOKE http://www.midiox.com/myoke.htm (on Windows)
+
+OR
+
+install JACK on ubuntu https://help.ubuntu.com/community/HowToJACKConfiguration [apt-get install jack]
+also install JACK Control - will allow you to use a GUI with Jack (installs under Sound/Audio) [apt-get install qjackctl]
+
+---------------------------------
+
+DON'T NEED THIS RIGHT NOW; USING PYGAME INSTEAD
+
+PortMidiZero http://pypi.python.org/pypi/portmidizero/0.1
+Make sure portmidizero.dll is placed in the Windows/System32 dir
+http://cratel.wichita.edu/cratel/cratel%20pyportmidi
+
+TRY: recompile portmidi.dll on your laptop :) (or whatever box you're on)
+
+---------------------------------
+
+pyGame http://www3.telus.net/len_l/pygame/
+
+ARG, NOT WORKING:
+patch pypm.pyx - to fix "PortMidi: Bad Pointer" error - http://www.mail-archive.com/pygame-users@seul.org/msg14997.html
+
+(thus, on Ubuntu, install https://launchpad.net/ubuntu/+source/pygame/1.9.1release-0ubuntu1 and then patch from http://packages.qa.debian.org/p/pygame.html - 1.9.1 patches
+may need SDL as dependency - if so, sudo apt-get install libsdl1.2-dev libsdl1.2debian)
+(on Windows - I think it will work to install latest binary from http://thorbrian.com/pygame/builds.php )
+
+note: pygame has its own version of portmidi (and its own portmidi.dll)
+
+[apt-get install python-pygame]
+
+
+retrying 3/12 : install python2.6 on Windows, install latest pygame from http://thorbrian.com/pygame/builds.php, install pyserial, pygame on python2.6, test this

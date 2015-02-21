@@ -1,0 +1,134 @@
+#N canvas 636 56 1055 597 10;
+#X floatatom 98 64 5 0 0 0 - - -;
+#X floatatom 165 83 5 0 0 0 - - -;
+#X text -4 62 MIDI note number;
+#X text 187 63 velocity;
+#X obj 116 28 notein 1;
+#X text 17 8 Read incoming stream of MIDI notes (only on Channel 1)
+;
+#X obj 65 173 makenote;
+#X msg 161 208 1;
+#X text 159 189 Channel 1;
+#X floatatom 60 205 5 0 0 0 - - -;
+#X floatatom 107 210 5 0 0 0 - - -;
+#X text 17 202 Note #;
+#X text 95 191 Velocity;
+#X text 396 10 Read incoming controller data (Ch 1);
+#X obj 469 29 ctlin 1;
+#X obj 90 238 noteout;
+#X floatatom 439 62 5 0 0 0 - - -;
+#X floatatom 500 63 5 0 0 0 - - -;
+#X text 288 60 Controller value (0-127);
+#X text 541 61 Controller #;
+#X obj 345 167 == 1;
+#X obj 414 168 == 2;
+#X obj 482 169 == 3;
+#X obj 542 169 == 4;
+#X obj 608 171 == 5;
+#X obj 677 171 == 6;
+#X obj 740 169 == 7;
+#X obj 806 170 == 8;
+#X obj 348 199 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 419 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 485 199 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 548 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 810 206 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 744 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 678 203 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 611 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 417 89 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 118 97 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array array1 33315 float 2;
+#X coords 0 1 33315 -1 200 140 1;
+#X restore -155 416 graph;
+#X obj 67 303 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X obj 68 336 openpanel;
+#X text 9 285 Open file dialog to load sample;
+#X floatatom 61 470 5 0 0 0 - - -;
+#X obj 63 405 soundfiler;
+#X obj 62 436 t f b;
+#X text 101 436 trigger float bang;
+#X obj 142 468 samplerate~;
+#X obj 62 499 /;
+#X text 100 497 Calculate duration of sample (seconds);
+#X floatatom 60 537 5 0 0 0 - - -;
+#X text 95 538 Duration (sec);
+#X msg 65 369 read -resize \$1 array1;
+#X text 137 351 Read file \, resize array1 to fit;
+#X obj 368 347 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X text 360 321 Play sample;
+#X obj 365 377 tabplay~ array1;
+#X obj 367 444 *~;
+#X obj 418 418 hsl 100 18 0 1 0 0 empty empty Volume -2 -8 0 10 -204786
+-1 -1 5535 1;
+#X obj 367 473 dac~;
+#X text 372 492 Sound output to speakers;
+#X floatatom 487 374 5 0 0 0 - - -;
+#X floatatom 416 448 5 0 0 0 - - -;
+#X obj 162 56 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 524 412 Velocity of hit determines volume \, from full (1)
+down to next to nothing (0).;
+#X obj 487 340 /;
+#X obj 495 309 127;
+#X connect 0 0 37 0;
+#X connect 1 0 64 0;
+#X connect 4 0 0 0;
+#X connect 4 1 62 0;
+#X connect 6 0 9 0;
+#X connect 6 1 10 0;
+#X connect 7 0 15 2;
+#X connect 9 0 15 0;
+#X connect 10 0 15 1;
+#X connect 14 0 16 0;
+#X connect 14 1 17 0;
+#X connect 17 0 20 0;
+#X connect 17 0 21 0;
+#X connect 17 0 22 0;
+#X connect 17 0 23 0;
+#X connect 17 0 24 0;
+#X connect 17 0 25 0;
+#X connect 17 0 26 0;
+#X connect 17 0 27 0;
+#X connect 17 0 36 0;
+#X connect 20 0 28 0;
+#X connect 21 0 29 0;
+#X connect 22 0 30 0;
+#X connect 23 0 31 0;
+#X connect 24 0 35 0;
+#X connect 25 0 34 0;
+#X connect 26 0 33 0;
+#X connect 27 0 32 0;
+#X connect 37 0 53 0;
+#X connect 39 0 40 0;
+#X connect 40 0 51 0;
+#X connect 42 0 47 0;
+#X connect 43 0 44 0;
+#X connect 44 0 42 0;
+#X connect 44 1 46 0;
+#X connect 46 0 47 1;
+#X connect 47 0 49 0;
+#X connect 51 0 43 0;
+#X connect 53 0 55 0;
+#X connect 55 0 56 0;
+#X connect 56 0 58 0;
+#X connect 57 0 56 1;
+#X connect 57 0 61 0;
+#X connect 60 0 57 0;
+#X connect 62 0 1 0;
+#X connect 62 0 65 0;
+#X connect 64 0 60 0;
+#X connect 65 0 64 1;

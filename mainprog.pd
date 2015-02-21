@@ -1,0 +1,90 @@
+#N canvas 1007 0 873 547 10;
+#X floatatom 98 64 5 0 0 0 - - -;
+#X floatatom 149 64 5 0 0 0 - - -;
+#X text -4 62 MIDI note number;
+#X text 187 63 velocity;
+#X obj 116 28 notein 1;
+#X text 17 8 Read incoming stream of MIDI notes (only on Channel 1)
+;
+#X obj 75 198 makenote;
+#X msg 171 233 1;
+#X text 169 214 Channel 1;
+#X floatatom 70 230 5 0 0 0 - - -;
+#X floatatom 117 235 5 0 0 0 - - -;
+#X text 27 227 Note #;
+#X text 105 216 Velocity;
+#X text 396 10 Read incoming controller data (Ch 1);
+#X obj 469 29 ctlin 1;
+#X obj 100 263 noteout;
+#X floatatom 439 62 5 0 0 0 - - -;
+#X floatatom 500 63 5 0 0 0 - - -;
+#X text 288 60 Controller value (0-127);
+#X text 541 61 Controller #;
+#X obj 345 167 == 1;
+#X obj 414 168 == 2;
+#X obj 482 169 == 3;
+#X obj 542 169 == 4;
+#X obj 608 171 == 5;
+#X obj 677 171 == 6;
+#X obj 740 169 == 7;
+#X obj 806 170 == 8;
+#X obj 348 199 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 419 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 485 199 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 548 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 810 206 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 744 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 678 203 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 611 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 417 89 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 118 97 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 508 313 graph;
+#X obj 91 368 soundfiler;
+#X floatatom 89 405 5 0 0 0 - - -;
+#X msg 84 333 read -resize BassFF(L)-1.wav array1;
+#X connect 0 0 37 0;
+#X connect 4 0 0 0;
+#X connect 4 1 1 0;
+#X connect 6 0 9 0;
+#X connect 6 1 10 0;
+#X connect 7 0 15 2;
+#X connect 9 0 15 0;
+#X connect 10 0 15 1;
+#X connect 14 0 16 0;
+#X connect 14 1 17 0;
+#X connect 17 0 20 0;
+#X connect 17 0 21 0;
+#X connect 17 0 22 0;
+#X connect 17 0 23 0;
+#X connect 17 0 24 0;
+#X connect 17 0 25 0;
+#X connect 17 0 26 0;
+#X connect 17 0 27 0;
+#X connect 17 0 36 0;
+#X connect 20 0 28 0;
+#X connect 21 0 29 0;
+#X connect 22 0 30 0;
+#X connect 23 0 31 0;
+#X connect 24 0 35 0;
+#X connect 25 0 34 0;
+#X connect 26 0 33 0;
+#X connect 27 0 32 0;
+#X connect 39 0 40 0;
+#X connect 41 0 39 0;
